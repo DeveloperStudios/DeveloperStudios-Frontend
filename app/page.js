@@ -948,7 +948,7 @@ const scrollingLogos = [
           </div>
           <div>
             <p className="text-lg font-semibold text-black">Service & Project Queries</p>
-            <p className="text-gray-700">service@developerstudios.in</p>
+            <p className="text-gray-700">hello@developerstudios.in</p>
           </div>
         </div>
 
@@ -958,7 +958,7 @@ const scrollingLogos = [
           </div>
           <div>
             <p className="text-lg font-semibold text-black">General Support</p>
-            <p className="text-gray-700">support@developerstudios.in</p>
+            <p className="text-gray-700">developerstudios@zohoomail.in</p>
           </div>
         </div>
 
