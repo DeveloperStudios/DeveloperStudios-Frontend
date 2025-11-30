@@ -29,7 +29,6 @@ import {
   Github,
   Instagram,
   Facebook,
-  Twitter,
 } from 'lucide-react'; 
 import toast from "react-hot-toast";
 
@@ -122,14 +121,17 @@ const testimonials = [
 
 // Reusable Social Media Icons Component
 const SocialIcons = () => (
-    <div className="flex items-center gap-4 text-gray-700">
-        <a href="https://linkedin.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-purple-600 transition"><Linkedin size={20} /></a>
-        <a href="https://github.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-purple-600 transition"><Github size={20} /></a>
-        <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-purple-600 transition"><Instagram size={20} /></a>
-        <a href="https://facebook.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Facebook (Meta)" className="hover:text-purple-600 transition"><Facebook size={20} /></a>
-        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-purple-600 transition"><Twitter size={20} /></a>
-    </div>
+  <div className="flex items-center gap-4 text-gray-700">
+      <a href="https://linkedin.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-purple-600 transition"><Linkedin size={20} /></a>
+      <a href="https://github.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-purple-600 transition"><Github size={20} /></a>
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-purple-600 transition"><Instagram size={20} /></a>
+      <a href="https://facebook.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-purple-600 transition"><Facebook size={20} /></a>
+
+      {/* Updated Twitter → X */}
+      <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:text-purple-600 transition"><X size={20} /></a>
+  </div>
 );
+
 
 const ContactForm = ({ brandGradient }) => {
     const [status, setStatus] = useState(""); // sending | disabled | success | error | ""
@@ -523,7 +525,7 @@ const scrollingLogos = [
   {/* Team Photos */}
   <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
-    <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 h-[420px]">
+    <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 w-[300px] h-[300px]">
       <img
         src="/Nizam.png"
         alt="Nizam"
@@ -531,7 +533,7 @@ const scrollingLogos = [
       />
     </div>
 
-    <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 h-[420px]">
+    <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 w-[300px] h-[300px]">
       <img
         src="/Ishwar.png"
         alt="Ishwar"
@@ -803,7 +805,7 @@ const scrollingLogos = [
       
  
     {/* Pricing Section - Premium UI Update */}
-<section id="pricing" className="px-6 py-20 max-w-7xl mx-auto">
+{/* <section id="pricing" className="px-6 py-20 max-w-7xl mx-auto">
   <div className="text-center mb-16">
     <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-black">Simple, Transparent Pricing</h2>
     <p className="text-gray-600">Choose the plan that fits your team's needs</p>
@@ -811,7 +813,6 @@ const scrollingLogos = [
 
   <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
-    {/* Starter Plan */}
     <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 hover:shadow-xl transition-all border border-gray-200">
       <h3 className="text-2xl font-bold mb-2 text-black">Starter</h3>
       <div className="mb-6">
@@ -840,7 +841,6 @@ const scrollingLogos = [
       </button>
     </div>
 
-    {/* Growth Plan (Most Popular) */}
     <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 border border-purple-300 shadow-lg relative">
       <div className={`absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r ${BRAND_GRADIENT} text-white px-4 py-1 rounded-full text-sm font-semibold`}>
         Most Popular
@@ -875,7 +875,6 @@ const scrollingLogos = [
       </button>
     </div>
 
-    {/* Enterprise Plan */}
     <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 hover:shadow-xl transition-all border border-gray-200">
       <h3 className="text-2xl font-bold mb-2 text-black">Enterprise</h3>
       <div className="mb-6">
@@ -906,7 +905,7 @@ const scrollingLogos = [
     </div>
 
   </div>
-</section>
+</section> */}
 
 
  {/* Contact Section - Premium Modern UI */}
