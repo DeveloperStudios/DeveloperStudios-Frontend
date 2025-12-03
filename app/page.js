@@ -257,7 +257,7 @@ const ContactForm = ({ brandGradient }) => {
                 <button
                     type="submit"
                     disabled={status === "sending" || status === "disabled"}
-                    className={`w-full text-white py-3 rounded-full flex items-center justify-center gap-2 font-semibold transition-all ${
+                    className={` cursor-pointer w-full text-white py-3 rounded-full flex items-center justify-center gap-2 font-semibold transition-all ${
                         status === "sending" || status === "disabled"
                             ? "bg-gray-500 cursor-not-allowed"
                             : `bg-gradient-to-r ${brandGradient} hover:shadow-lg`
@@ -379,11 +379,17 @@ const scrollingLogos = [
 
     {/* CTA button */}
     <div className="hidden md:flex items-center">
+        <a 
+    href="https://calendly.com/raoishwar9/30min" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="no-underline"
+  >
       <button 
-        className={`px-6 text-sm py-2.5 rounded-full font-medium text-white shadow-md hover:opacity-90 transition bg-gradient-to-r ${BRAND_GRADIENT} flex items-center gap-2`}
+        className={`cursor-pointer px-6 text-sm py-2.5 rounded-full font-medium text-white shadow-md hover:opacity-90 transition bg-gradient-to-r ${BRAND_GRADIENT} flex items-center gap-2`}
       >
         Get Your First Lead For Free <ArrowRight size={17} />
-      </button>
+      </button></a>
     </div>
 
     {/* Mobile Menu Button */}
@@ -403,12 +409,18 @@ const scrollingLogos = [
       <a href="#services" className="block py-2 text-gray-700 hover:text-black">Services</a>
       <a href="#projects" className="block py-2 text-gray-700 hover:text-black">Projects</a>
       <a href="#contact" className="block py-2 text-gray-700 hover:text-black">Contact</a>
-
+  <a 
+    href="https://calendly.com/raoishwar9/30min" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="no-underline"
+  >
       <button 
-        className={`w-full mt-3 px-5 py-2.5 rounded-full text-white font-medium shadow-md hover:opacity-90 bg-gradient-to-r ${BRAND_GRADIENT} flex items-center justify-center gap-2`}
+        className={` cursor-pointer w-full mt-3 px-5 py-2.5 rounded-full text-white font-medium shadow-md hover:opacity-90 bg-gradient-to-r ${BRAND_GRADIENT} flex items-center justify-center gap-2`}
       >
+        
         Get Your First Lead For Free <ArrowRight size={17} />
-      </button>
+      </button></a>
     </div>
   )}
 </header>
@@ -435,9 +447,15 @@ const scrollingLogos = [
     </p>
 
     {/* CTA */}
-    <button className={`px-10 py-4 rounded-full text-white font-medium text-lg bg-gradient-to-r ${BRAND_GRADIENT} hover:opacity-90 flex items-center gap-2 mx-auto`}>
+      <a 
+    href="https://calendly.com/raoishwar9/30min" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="no-underline"
+  >
+    <button className={`cursor-pointer  px-10 py-4 rounded-full text-white font-medium text-lg bg-gradient-to-r ${BRAND_GRADIENT} hover:opacity-90 flex items-center gap-2 mx-auto`}>
       Get Your First Lead For Free <ArrowRight size={20} />
-    </button>
+    </button></a>
   </div>
 
   {/* Keep your feature cards exactly as they were */}
@@ -1095,15 +1113,31 @@ const scrollingLogos = [
       <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Ready for Next-Gen Growth?</h2>
 
       {/* CTA buttons */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button className={`bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 flex items-center gap-2 bg-gradient-to-r ${BRAND_GRADIENT}`}>
-          Get Your First Lead For Free <ArrowRight size={18} />
-        </button>
+<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
 
-        <button className="bg-white text-gray-900 px-8 py-3 rounded-full hover:bg-gray-50 flex items-center gap-2">
-          Schedule a Demo <ArrowRight size={18} />
-        </button>
-      </div>
+  <a 
+    href="https://calendly.com/raoishwar9/30min" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="no-underline"
+  >
+  <button className={`bg-black cursor-pointer  text-white px-8 py-3 rounded-full hover:bg-gray-800 flex items-center gap-2 bg-gradient-to-r ${BRAND_GRADIENT}`}>
+    Get Your First Lead For Free <ArrowRight size={18} />
+  </button>
+</a>
+  <a 
+    href="https://calendly.com/raoishwar9/30min" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="no-underline"
+  >
+    <button className="bg-white text-gray-900 px-8 py-3 rounded-full hover:bg-gray-50 flex items-center gap-2 no-underline">
+      Schedule a Demo <ArrowRight size={18} />
+    </button>
+  </a>
+
+</div>
+
     </div>
   </div>
 </section>
