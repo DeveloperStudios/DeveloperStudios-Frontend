@@ -122,15 +122,54 @@ const testimonials = [
 // Reusable Social Media Icons Component
 const SocialIcons = () => (
   <div className="flex items-center gap-4 text-gray-700">
-      <a href="https://linkedin.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-purple-600 transition"><Linkedin size={20} /></a>
-      <a href="https://github.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-purple-600 transition"><Github size={20} /></a>
-      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-purple-600 transition"><Instagram size={20} /></a>
-      <a href="https://facebook.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-purple-600 transition"><Facebook size={20} /></a>
+      
+      {/* LinkedIn */}
+      <a 
+        href="https://www.linkedin.com/company/developer-studios?trk=blended-typeahead" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        aria-label="LinkedIn" 
+        className="hover:text-purple-600 transition"
+      >
+        <Linkedin size={20} />
+      </a>
 
-      {/* Updated Twitter → X */}
-      <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:text-purple-600 transition"><X size={20} /></a>
+      {/* GitHub */}
+      <a 
+        href="https://github.com/Developerstudios" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        aria-label="GitHub" 
+        className="hover:text-purple-600 transition"
+      >
+        <Github size={20} />
+      </a>
+
+      {/* Instagram */}
+      <a 
+        href="https://www.instagram.com/developerstudios.in?igsh=NjhhcXp6aG5ld2ow" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        aria-label="Instagram" 
+        className="hover:text-purple-600 transition"
+      >
+        <Instagram size={20} />
+      </a>
+
+      {/* Facebook */}
+      <a 
+        href="https://www.facebook.com/profile.php?id=100094521793367" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        aria-label="Facebook" 
+        className="hover:text-purple-600 transition"
+      >
+        <Facebook size={20} />
+      </a>
+
   </div>
 );
+
 
 
 const ContactForm = ({ brandGradient }) => {
@@ -332,16 +371,16 @@ const scrollingLogos = [
 
     {/* Desktop Nav */}
     <nav className="hidden md:flex items-center gap-10">
-      <a href="#" className="text-gray-700 hover:text-black transition">Home</a>
-      <a href="#services" className="text-gray-700 hover:text-black transition">Services</a>
-      <a href="#projects" className="text-gray-700 hover:text-black transition">Projects</a>
-      <a href="#contact" className="text-gray-700 hover:text-black transition">Contact</a>
+      <a href="#" className="text-gray-700 text-sm hover:text-black transition">Home</a>
+      <a href="#services" className="text-gray-700 text-sm hover:text-black transition">Services</a>
+      <a href="#projects" className="text-gray-700 text-sm hover:text-black transition">Projects</a>
+      <a href="#contact" className="text-gray-700 text-sm hover:text-black transition">Contact</a>
     </nav>
 
     {/* CTA button */}
     <div className="hidden md:flex items-center">
       <button 
-        className={`px-6 py-2.5 rounded-full font-medium text-white shadow-md hover:opacity-90 transition bg-gradient-to-r ${BRAND_GRADIENT} flex items-center gap-2`}
+        className={`px-6 text-sm py-2.5 rounded-full font-medium text-white shadow-md hover:opacity-90 transition bg-gradient-to-r ${BRAND_GRADIENT} flex items-center gap-2`}
       >
         Get Your First Lead For Free <ArrowRight size={17} />
       </button>
@@ -501,7 +540,7 @@ const scrollingLogos = [
 </section>
 
 
-  {/* ABOUT SECTION */}
+{/* ABOUT SECTION */}
 <section id="about" className="px-6 py-24 max-w-7xl mx-auto">
 
   <div className="text-center mb-16">
@@ -523,26 +562,37 @@ const scrollingLogos = [
   </div>
 
   {/* Team Photos */}
-  <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+  <div className="grid md:grid-cols-2  max-w-2xl mx-auto">
 
-    <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 w-[300px] h-[300px]">
-      <img
-        src="/Nizam.png"
-        alt="Nizam"
-        className="w-full h-full object-cover"
-      />
+    {/* CEO - Nizam */}
+    <div className="flex flex-col items-center">
+      <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 w-[220px] h-[220px]">
+        <img
+          src="/Nizam.png"
+          alt="Nizam"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="mt-4 text-xl font-semibold text-gray-900">Nizam</h3>
+      <p className="text-gray-600 text-sm">CEO</p>
     </div>
 
-    <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 w-[300px] h-[300px]">
-      <img
-        src="/Ishwar.png"
-        alt="Ishwar"
-        className="w-full h-full object-cover"
-      />
+    {/* CFO - Ishwar */}
+    <div className="flex flex-col items-center">
+      <div className="rounded-2xl overflow-hidden shadow-lg bg-gray-100 w-[220px] h-[220px]">
+        <img
+          src="/Ishwar.png"
+          alt="Ishwar"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="mt-4 text-xl font-semibold text-gray-900">Ishwar</h3>
+      <p className="text-gray-600 text-sm">CFO</p>
     </div>
 
   </div>
 </section>
+
 
 
 
@@ -908,95 +958,99 @@ const scrollingLogos = [
 </section> */}
 
 
- {/* Contact Section - Premium Modern UI */}
-<section id="contact" className="px-6 py-24 max-w-7xl mx-auto">
-  
+{/* Contact Section - Premium Modern UI */}
+<section id="contact" className="px-4 sm:px-6 py-20 max-w-7xl mx-auto">
+
   {/* Heading */}
-  <div className="text-center mb-20">
+  <div className="text-center mb-16">
     <span className={`text-sm font-semibold ${BRAND_TEXT_COLOR} mb-3 block`}>
       Contact Us
     </span>
 
-    <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-black">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-black">
       Let's Build Something Exceptional
     </h2>
 
-    <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-      Whether you're looking to start a project or need support — our team is here 
-      to help you grow. Expect a reply within <span className="font-semibold">24 hours</span>.
+    <p className="text-gray-600 max-w-xl mx-auto text-base sm:text-lg">
+      Whether you're starting a project or need support—our team is ready to help.  
+      Expect a reply within <span className="font-semibold">24 hours</span>.
     </p>
   </div>
 
-  <div className="grid md:grid-cols-2 gap-16">
+  {/* Responsive Grid */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 md:gap-16">
 
     {/* Left Pane – Contact Card */}
-    <div className="relative p-10 rounded-3xl shadow-xl bg-white/60 backdrop-blur-lg border border-white/40">
+    <div className="relative p-6 sm:p-8 md:p-10 rounded-3xl shadow-xl bg-white/60 backdrop-blur-lg border border-white/40">
 
       {/* Top gradient bar */}
       <div className={`absolute top-0 left-0 w-full h-2 rounded-t-3xl bg-gradient-to-r ${BRAND_GRADIENT}`}></div>
 
       {/* Title */}
-      <h3 className="text-3xl font-bold text-black mb-10">Get In Touch</h3>
+      <h3 className="text-2xl sm:text-3xl font-bold text-black mb-8 sm:mb-10">
+        Get In Touch
+      </h3>
 
-      <div className="space-y-10">
+      <div className="space-y-8 sm:space-y-10">
 
         {/* Email Section */}
         <div className="flex gap-4 items-start">
-          <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
-            <Mail size={22} className="text-white" />
+          <div className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
+            <Mail size={20} className="text-white" />
           </div>
           <div>
             <p className="text-lg font-semibold text-black">Service & Project Queries</p>
-            <p className="text-gray-700">hello@developerstudios.in</p>
+            <p className="text-gray-700 text-sm sm:text-base">hello@developerstudios.in</p>
           </div>
         </div>
 
+        {/* Second Email */}
         <div className="flex gap-4 items-start">
-          <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
-            <Mail size={22} className="text-white" />
+          <div className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
+            <Mail size={20} className="text-white" />
           </div>
           <div>
             <p className="text-lg font-semibold text-black">General Support</p>
-            <p className="text-gray-700">developerstudios@zohoomail.in</p>
+            <p className="text-gray-700 text-sm sm:text-base">developerstudios@zohoomail.in</p>
           </div>
         </div>
 
         {/* Phone Section */}
         <div className="flex gap-4 items-start">
-          <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
-            <Phone size={22} className="text-white" />
+          <div className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
+            <Phone size={20} className="text-white" />
           </div>
           <div>
             <p className="text-lg font-semibold text-black">Project & Service Call</p>
-            <p className="text-gray-700">+91 88897 97895</p>
+            <p className="text-gray-700 text-sm sm:text-base">+91 88897 97895</p>
           </div>
         </div>
 
         <div className="flex gap-4 items-start">
-          <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
-            <Phone size={22} className="text-white" />
+          <div className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
+            <Phone size={20} className="text-white" />
           </div>
           <div>
             <p className="text-lg font-semibold text-black">Support Call</p>
-            <p className="text-gray-700">+91 96173 15754</p>
+            <p className="text-gray-700 text-sm sm:text-base">+91 96173 15754</p>
           </div>
         </div>
 
         {/* Location */}
         <div className="flex gap-4 items-start">
-          <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
-            <MapPin size={22} className="text-white" />
+          <div className={`w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${BRAND_GRADIENT} shadow-md`}>
+            <MapPin size={20} className="text-white" />
           </div>
           <div>
             <p className="text-lg font-semibold text-black">Office Location</p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
               2nd Floor, Twin Plaza, Telephone Exchange Road, Bilaspur, Chhattisgarh, India.
             </p>
           </div>
         </div>
 
         {/* Social icons */}
-        <div className="pt-6 border-t border-gray-200">
+        <div className="pt-4 sm:pt-6 border-t border-gray-200">
           <h4 className="font-semibold text-lg text-black mb-3">Connect with us</h4>
           <SocialIcons />
         </div>
@@ -1005,12 +1059,13 @@ const scrollingLogos = [
     </div>
 
     {/* Right Pane – Contact Form */}
-    <div className="p-10 bg-white/60 rounded-3xl shadow-xl backdrop-blur-lg border border-white/40">
+    <div className="p-6 sm:p-8 md:p-10 bg-white/60 rounded-3xl shadow-xl backdrop-blur-lg border border-white/40">
       <ContactForm brandGradient={BRAND_GRADIENT} />
     </div>
 
   </div>
 </section>
+
 
 
 {/* CTA Section - Updated Content and Brand Gradient */}
@@ -1026,7 +1081,7 @@ const scrollingLogos = [
       {/* Avatars */}
       <div className="flex items-center justify-center gap-3 mb-6">
         <img src="https://i.pravatar.cc/100?img=1" className="w-10 h-10 rounded-full bg-white" />
-        <img src="https://i.pravatar.cc/100?img=2" className="w-10 h-10 rounded-full bg-white -ml-3" />
+        <img src="https://i.pravatar.cc/100?img=4" className="w-10 h-10 rounded-full bg-white -ml-3" />
         <img src="https://i.pravatar.cc/100?img=3" className="w-10 h-10 rounded-full bg-white -ml-3" />
       </div>
 
