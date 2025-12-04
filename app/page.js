@@ -236,7 +236,8 @@ const HeroSection = () => (
             <div 
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ 
-                    backgroundImage: `url(./photo-1600596542815-ffad4c1539a9.jpg)`,
+                     backgroundImage: `url('./bg.jpg')`,
+
                     // Adjust position if needed, e.g., 'background-position-y: top'
                 }}
             >
@@ -275,14 +276,7 @@ const HeroSection = () => (
 
                 </div>
 
-                {/* Right Hero Visual Card (Matching the image top-right card) */}
-                <div className="hidden md:block absolute right-6 top-20 w-64 h-40 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 text-white shadow-xl">
-                    <p className="text-sm font-semibold mb-2">Discover Our Related Project</p>
-                    <div className="w-full h-20 bg-gray-600/50 rounded-lg overflow-hidden">
-                        {/* Placeholder for project thumbnail/image */}
-                        <img src="./company.png" alt="Project Thumbnail" className="w-full h-full object-cover opacity-80" />
-                    </div>
-                </div>
+           
             </div>
         </div>
         
@@ -434,10 +428,10 @@ const PortfolioSection = () => (
     <section id="projects" className={`py-20 px-6 ${DARK_BG} text-white`}>
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-                <span className={`text-sm font-semibold ${BRAND_COLOR} mb-3 block`}>
+                <span className={`text-sm font-semibold text-black ${BRAND_COLOR} mb-3 block`}>
                     Our Portfolio
                 </span>
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+                <h2 className="text-4xl  text-black md:text-5xl font-extrabold mb-4">
                     Featured Client Successes
                 </h2>
                 <p className="text-gray-400 max-w-xl mx-auto">
@@ -526,7 +520,7 @@ const ContactSection = () => (
                 <span className={`text-sm font-semibold ${BRAND_COLOR} mb-3 block`}>
                     Start Your Project
                 </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-white">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-black">
                     Let's Build Something Exceptional
                 </h2>
                 <p className="text-gray-400 max-w-xl mx-auto text-base sm:text-lg">
@@ -605,8 +599,8 @@ const Footer = () => (
             {/* Logo + About */}
             <div className="md:col-span-2">
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-brand-red shadow-sm bg-black flex items-center justify-center">
-                        <span className="text-white font-black text-lg">DS</span> 
+                    <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-brand-red shadow-sm flex items-center justify-center">
+                   <img src="./logo.png"/>
                     </div>
                     <span className="text-xl font-semibold text-black">Developer<span className={BRAND_COLOR}>Studios</span></span>
                 </div>
