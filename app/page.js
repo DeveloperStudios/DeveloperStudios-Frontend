@@ -232,30 +232,27 @@ const HeroSection = () => (
     <section id="hero" className={`relative ${LIGHT_BG} overflow-hidden pt-0`}>
         {/* Full-width Hero Container with Background Image */}
         <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden rounded-b-3xl">
-            {/* Background Image (Using an uploaded image as placeholder) */}
             <div 
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ 
-                     backgroundImage: `url('./bg.jpg')`,
-
-                    // Adjust position if needed, e.g., 'background-position-y: top'
+                    backgroundImage: `url('./bg.jpg')`,
                 }}
             >
-                {/* Dark Overlay for Text Visibility (Matching the inspiration image) */}
                 <div className="absolute inset-0 bg-black/50 backdrop-brightness-50"></div>
             </div>
 
-            {/* Hero Content positioned centrally/left */}
+            {/* Hero Content */}
             <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-6">
-                <div className="text-white max-w-2xl">
+                <div className="text-white ">
                     <p className="text-sm tracking-widest uppercase text-gray-300 mb-2">
-                        Top Development Provider in the World
+                        Your Trusted Partner in Digital Innovation
                     </p>
-                    <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-                        New Energy <br /> for the Future
+
+                    <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+                        From Concept to Creation <br /> Your Vision, Our Code
                     </h1>
-                    
-                    {/* Hero Buttons (Slightly smaller, sleek style) */}
+
+                    {/* Buttons */}
                     <div className="flex gap-4 mb-8">
                         <a href="https://calendly.com/raoishwar9/30min" target="_blank" rel="noopener noreferrer" className="no-underline">
                             <button className={`cursor-pointer px-6 py-3 rounded-full text-white font-medium ${BRAND_BG} hover:opacity-90 transition flex items-center gap-2`}>
@@ -267,7 +264,7 @@ const HeroSection = () => (
                         </button>
                     </div>
 
-                    {/* Small Links Section (Matching image style) */}
+                    {/* Small Links */}
                     <div className="flex gap-4 text-sm text-gray-300">
                         <a href="#services" className="hover:text-brand-red transition">Our Services</a>
                         <span className="opacity-50">|</span>
@@ -275,12 +272,10 @@ const HeroSection = () => (
                     </div>
 
                 </div>
-
-           
             </div>
         </div>
-        
-        {/* Stats Bar positioned below the Hero Image */}
+
+        {/* Stats */}
         <div className="max-w-7xl mx-auto -mt-20 relative z-20 grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
             {stats.map((stat, index) => (
                 <div key={index} className="p-8 rounded-xl bg-white shadow-2xl border border-gray-100 text-center">
@@ -293,6 +288,7 @@ const HeroSection = () => (
         </div>
     </section>
 );
+
 
 const AboutSection = () => (
     <section id="about" className={`px-6 py-24 ${LIGHT_BG}`}>
@@ -330,19 +326,23 @@ const AboutSection = () => (
 const CoreFeaturesSection = () => (
     <section id="features" className={`px-6 py-24 ${LIGHT_BG} pt-40`}>
         <div className="max-w-7xl mx-auto">
-            {/* Split Content Section (Matching the image style) */}
+            {/* Split Content Section */}
             <div className="grid md:grid-cols-2 gap-12 mb-20 items-start">
                 <div>
                     <h2 className="text-4xl font-extrabold text-black mb-4 max-w-sm">
-                        Focusing on quality, we maintain customer trust
+                        Quality you can trust. Results you can rely on.
                     </h2>
                 </div>
                 <div className="text-gray-700 text-lg leading-relaxed pt-2">
-                    <p>We ensure that every installation and solution is built with superior quality checks. Sustainable solutions for an environmentally friendly and renewable future.</p>
+                    <p>
+                        Every product we build goes through strict quality checks, seamless performance testing, 
+                        and unmatched attention to detail — ensuring long-lasting, high-performing digital solutions 
+                        that elevate your business.
+                    </p>
                 </div>
             </div>
 
-            {/* Logo/Integration Row (Matching the image style) - Using client logos */}
+            {/* Logo Row */}
             <div className="flex flex-wrap justify-center gap-6 py-12 border-t border-b border-gray-300 bg-white/70 rounded-xl ">
                 <div className="p-4 bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center shadow-inner">
                     <img src="./rogers.svg" alt="Rogers" className="h-20 w-auto opacity-70" />
@@ -360,20 +360,19 @@ const CoreFeaturesSection = () => (
                     <img src="./salesforce-with-type-logo.svg" alt="Salesforce" className="h-20 w-auto opacity-70" />
                 </div>
 
-                   <div className="p-4 bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center shadow-inner">
-                    <img src="./logo-holibrands.svg" alt="Salesforce" className="h-20 w-auto opacity-70" />
+                <div className="p-4 bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center shadow-inner">
+                    <img src="./logo-holibrands.svg" alt="Holibrands" className="h-20 w-auto opacity-70" />
                 </div>
 
-                   <div className="p-4 bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center shadow-inner">
-                    <img src="./overseas.svg" alt="Salesforce" className="h-20 w-auto opacity-70" />
+                <div className="p-4 bg-gray-100 rounded-full w-24 h-24 flex items-center justify-center shadow-inner">
+                    <img src="./overseas.svg" alt="Overseas" className="h-20 w-auto opacity-70" />
                 </div>
-                
             </div>
             
-            {/* Secondary Feature Grid (Moved up from previous CoreFeaturesSection) */}
+            {/* Secondary Feature Grid */}
             <div className="text-center mt-20 mb-16">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4">
-                    We offer quality, with the <br /> best materials and service
+                    Premium digital solutions, built with precision.
                 </h2>
             </div>
 
@@ -392,8 +391,6 @@ const CoreFeaturesSection = () => (
         </div>
     </section>
 );
-
-
 const ServicesSection = () => (
     <section id="services" className={`px-6 py-24 ${LIGHT_BG}`}>
         <div className="max-w-7xl mx-auto">
@@ -402,10 +399,11 @@ const ServicesSection = () => (
                     Our Services
                 </span>
                 <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-4 leading-tight">
-                    Trusted Service, for your <br /> various needs
+                    Scalable Solutions for Every <br /> Stage of Your Business
                 </h2>
                 <p className="text-gray-700 text-lg max-w-2xl mx-auto">
-                    We build systems that generate revenue, save time, and grow your business 10x faster.
+                    From design to development, we build robust systems that boost revenue, streamline 
+                    operations, and accelerate business growth.
                 </p>
             </div>
 
@@ -416,13 +414,16 @@ const ServicesSection = () => (
                             <feature.icon className="text-white" size={28} />
                         </div>
                         <h3 className="text-2xl font-bold text-black mb-3">{feature.title}</h3>
-                        <p className="text-gray-700 leading-relaxed text-[15.5px]">{feature.description}</p>
+                        <p className="text-gray-700 leading-relaxed text-[15.5px]">
+                            {feature.description}
+                        </p>
                     </div>
                 ))}
             </div>
         </div>
     </section>
 );
+
 
 const PortfolioSection = () => (
     <section id="projects" className={`py-20 px-6 ${DARK_BG} text-white`}>
@@ -524,7 +525,7 @@ const ContactSection = () => (
                     Let's Build Something Exceptional
                 </h2>
                 <p className="text-gray-400 max-w-xl mx-auto text-base sm:text-lg">
-                    Connect with our experts. We guarantee a reply within <span className="font-semibold text-white">24 hours</span>.
+                    Connect with our experts. We guarantee a reply within <span className="font-semibold text-red-700">24 hours</span>.
                 </p>
             </div>
 
