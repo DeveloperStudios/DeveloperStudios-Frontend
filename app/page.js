@@ -45,6 +45,8 @@ const LIGHT_BG = 'bg-brand-light'; // #F8F8F8 (from previous config)
 const ACCENT_RED = '#E91E63';
 
 
+
+
 // --- Data Structures ---
 
 const portfolioItems = [
@@ -593,7 +595,7 @@ const ContactSection = () => (
     </section>
 );
 
-const Footer = () => (
+const Footer = ({ showPrivacy, setShowPrivacy, showTerms, setShowTerms }) => (
     <footer className="px-6 py-12 max-w-7xl mx-auto border-t border-gray-300">
         <div className="grid md:grid-cols-5 gap-8 mb-8">
 
@@ -626,41 +628,83 @@ const Footer = () => (
                 </ul>
             </div>
 
-            <div>
-                <h4 className="font-semibold mb-4 text-black">Resources</h4>
-                <ul className="space-y-2 text-sm text-gray-700">
-                    <li><a href="#" className="hover:text-brand-red">Blog</a></li>
-                    <li><a href="#" className="hover:text-brand-red">Help Center</a></li>
-                    <li><a href="#" className="hover:text-brand-red">Guides & Docs</a></li>
-                    <li><a href="#" className="hover:text-brand-red">API Docs</a></li>
-                </ul>
-            </div>
+           <div>
+    <h4 className="font-semibold mb-4 text-black">Resources</h4>
+    <ul className="space-y-2 text-sm text-gray-700">
+        <li>Documentation & Guides</li>
+        <li>Developer Tutorials</li>
+        <li>Marketing & SEO Insights</li>
+        <li>Product Updates</li>
+    </ul>
+</div>
 
-            <div>
-                <h4 className="font-semibold mb-4 text-black">Company</h4>
-                <ul className="space-y-2 text-sm text-gray-700">
-                    <li><a href="#about" className="hover:text-brand-red">About Us</a></li>
-                    <li><a href="https://developerstudios.in/careers" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red">Careers</a></li>
-                    <li><a href="#" className="hover:text-brand-red">Press Kit</a></li>
-                    <li><a href="#contact" className="hover:text-brand-red">Contact</a></li>
-                </ul>
-            </div>
+<div>
+    <h4 className="font-semibold mb-4 text-black">Company</h4>
+    <ul className="space-y-2 text-sm text-gray-700">
+        <li>About Developer Studios</li>
+        <li>Leadership Team</li>
+        <li>Careers</li>
+        <li>Partners & Collaborations</li>
+    </ul>
+</div>
+
         </div>
 
-        <div className="pt-8 border-t border-gray-300 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-gray-600">© 2025 DeveloperStudios. All rights reserved.</p>
-            <div className="flex items-center gap-6 text-sm text-gray-600">
-                <a href="#" className="hover:text-brand-red">Privacy Policy</a>
-                <a href="#" className="hover:text-brand-red">Terms & Conditions</a>
-            </div>
-        </div>
+      {/* Footer Bottom */}
+<div className="pt-8 border-t border-gray-300 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p className="text-sm text-gray-600">© 2025 DeveloperStudios. All rights reserved.</p>
+
+    {/* Modal Triggers */}
+    <div className="flex items-center gap-6 text-sm text-gray-600">
+        <button 
+            onClick={() => setShowPrivacy(true)} 
+            className="hover:text-brand-red"
+        >
+            Privacy Policy
+        </button>
+        <button 
+            onClick={() => setShowTerms(true)} 
+            className="hover:text-brand-red"
+        >
+            Terms & Conditions
+        </button>
+    </div>
+</div>
     </footer>
 );
+
+
+const Modal = ({ open, onClose, title, children }) => {
+    if (!open) return null;
+
+    return (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-xl max-w-lg w-full shadow-xl">
+                <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-xl font-bold text-black">{title}</h2>
+                    <button
+                        className="text-gray-600 hover:text-black text-2xl"
+                        onClick={onClose}
+                    >
+                        ×
+                    </button>
+                </div>
+
+                <div className="text-gray-700 leading-relaxed">
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 
 
 // --- Main Application Component ---
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
+const [showTerms, setShowTerms] = useState(false);
 
   return (
     <div className={`min-h-screen ${LIGHT_BG} antialiased`}>
@@ -680,7 +724,32 @@ export default function App() {
         <ContactSection />
       </main>
 
-      <Footer />
+     <Footer 
+    showPrivacy={showPrivacy}
+    setShowPrivacy={setShowPrivacy}
+    showTerms={showTerms}
+    setShowTerms={setShowTerms}
+/>
+
+
+      <Modal 
+    open={showPrivacy} 
+    onClose={() => setShowPrivacy(false)} 
+    title="Privacy Policy"
+>
+    We value your privacy. Developer Studios does not share or sell user data...
+</Modal>
+
+<Modal 
+    open={showTerms} 
+    onClose={() => setShowTerms(false)} 
+    title="Terms & Conditions"
+>
+    By accessing our services, you agree to follow all standard usage policies...
+</Modal>
+
     </div>
+
+
   );
 }
