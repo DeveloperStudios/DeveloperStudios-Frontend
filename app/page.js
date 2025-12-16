@@ -22,8 +22,20 @@ import {
   Zap,
   Target,
   Sparkles,
+  Video ,
+  MessageCircle,
+  LinkedIn,
+  ArrowUpRight ,
+  Cpu, 
+  Palette, 
+  TrendingUp, 
+  Check, 
+  Terminal, 
+  MessageSquare, 
+  BarChart, 
+  Layers
 } from 'lucide-react';
-
+import { Toaster, toast } from 'react-hot-toast';
 const portfolioItems = [
   { title: 'Rogers Telecom', href: 'https://www.rogers.com/', image: './rogers.png', category: 'Telecommunications' },
   { title: 'Telus Digital', href: 'https://www.telus.com/en/', image: './telus.png', category: 'Telecommunications' },
@@ -167,7 +179,7 @@ const Header = () => {
 const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center bg-neutral-50 pt-20 overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="absolute inset-0 opacity-[1]">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(0 0 0) 1px, transparent 0)',
           backgroundSize: '40px 40px'
@@ -244,46 +256,154 @@ const LogoCloud = () => {
   );
 };
 
+
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-2xl mb-20">
-          <span className="text-sm font-semibold text-red-600 mb-4 block">OUR SERVICES</span>
-          <h2 className="text-5xl font-bold text-neutral-900 mb-6">
-            Everything you need<br />to succeed online
+    <section id="services" className="py-32 bg-[#050505] text-white relative overflow-hidden">
+      
+      {/* Background Gradients */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-red-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="mb-20 max-w-2xl">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
+            <span className="text-red-500 font-bold tracking-widest text-xs uppercase">Our Expertise</span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Digital solutions geared for <span className="text-red-600">velocity.</span>
           </h2>
-          <p className="text-lg text-neutral-600">
-            From concept to launch, we provide end-to-end solutions that 
-            transform businesses and accelerate growth.
+          <p className="text-neutral-400 text-lg leading-relaxed">
+            We don't just write code; we architect systems that drive revenue, automate drudgery, and scale effortlessly.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {services.map((service, i) => (
-            <div 
-              key={i} 
-              className="group p-10 bg-neutral-50 hover:bg-white border border-neutral-200 hover:border-neutral-300 rounded-3xl transition-all hover:shadow-xl"
-            >
-              <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <service.icon size={28} className="text-white" />
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Card 1: Web Engineering (Large Span) */}
+          <div className="col-span-1 md:col-span-2 group relative bg-neutral-900/50 border border-neutral-800 rounded-3xl p-8 hover:border-red-600/30 transition-all duration-300 overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            
+            <div className="relative z-10 flex flex-col md:flex-row gap-8 h-full">
+              <div className="flex-1">
+                <div className="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 transition-colors duration-300">
+                  <Code size={24} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Web Engineering</h3>
+                <p className="text-neutral-400 text-sm leading-relaxed mb-6">
+                  High-performance frontends and bulletproof backends. We use Next.js and Cloud-native architecture to ensure your platform handles scale without blinking.
+                </p>
+                <ul className="space-y-2">
+                  {["Next.js / React", "Cloud Infrastructure", "Headless CMS"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-neutral-300">
+                      <Check size={14} className="text-red-500" /> {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold text-neutral-900 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-neutral-600 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              <ul className="space-y-2">
-                {service.features.map((feature, j) => (
-                  <li key={j} className="flex items-center gap-2 text-sm text-neutral-600">
-                    <CheckCircle size={16} className="text-red-600 flex-shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              
+              {/* Abstract Visual: Code Window */}
+              <div className="flex-1 flex items-end justify-end">
+                <div className="w-full bg-black/50 border border-neutral-800 rounded-xl p-4 font-mono text-xs text-neutral-400 shadow-2xl transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <div className="flex gap-1.5 mb-3 border-b border-neutral-800 pb-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-neutral-700"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-neutral-700"></div>
+                  </div>
+                  <div className="space-y-1">
+                    <p><span className="text-red-500">const</span> <span className="text-white">scale</span> = <span className="text-blue-400">async</span> () ={'>'} {'{'}</p>
+                    <p className="pl-4"><span className="text-red-500">await</span> infrastructure.<span className="text-yellow-400">deploy</span>({'{'}</p>
+                    <p className="pl-8">mode: <span className="text-green-400">'turbo'</span>,</p>
+                    <p className="pl-8">uptime: <span className="text-green-400">'99.99%'</span></p>
+                    <p className="pl-4">{'}'});</p>
+                    <p>{'}'};</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Card 2: AI Automation (Tall) */}
+          <div className="col-span-1 group relative bg-neutral-900/50 border border-neutral-800 rounded-3xl p-8 hover:border-red-600/30 transition-all duration-300 overflow-hidden flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-transparent to-red-900/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            
+            <div className="relative z-10">
+              <div className="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 transition-colors duration-300">
+                <Cpu size={24} className="text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">AI Agents</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed mb-6">
+                Automate customer support and workflows with intelligent agents that run 24/7.
+              </p>
+            </div>
+
+            {/* Abstract Visual: Chat Interface */}
+            <div className="relative z-10 mt-6 space-y-3">
+              <div className="bg-neutral-800/50 rounded-lg p-3 rounded-bl-none max-w-[80%] text-xs text-neutral-300 border border-neutral-700">
+                How can I optimize leads?
+              </div>
+              <div className="bg-red-900/20 rounded-lg p-3 rounded-br-none ml-auto max-w-[80%] text-xs text-red-200 border border-red-900/30">
+                Analyzing data... I found 3 strategies.
+              </div>
+              <div className="flex gap-2 justify-center pt-2">
+                 <div className="w-2 h-2 bg-neutral-700 rounded-full animate-bounce"></div>
+                 <div className="w-2 h-2 bg-neutral-700 rounded-full animate-bounce delay-100"></div>
+                 <div className="w-2 h-2 bg-neutral-700 rounded-full animate-bounce delay-200"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Product Design */}
+          <div className="col-span-1 group relative bg-neutral-900/50 border border-neutral-800 rounded-3xl p-8 hover:border-red-600/30 transition-all duration-300 overflow-hidden">
+            <div className="relative z-10">
+              <div className="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 transition-colors duration-300">
+                <Palette size={24} className="text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">UI/UX Design</h3>
+              <p className="text-neutral-400 text-sm leading-relaxed mb-6">
+                Interfaces that convert. We map user journeys to create addiction-forming experiences.
+              </p>
+              
+              {/* Abstract Visual: Color Palette / Wireframe */}
+              <div className="flex gap-2 mt-4">
+                 <div className="h-8 w-8 rounded-full bg-white border-2 border-neutral-700 group-hover:-translate-y-1 transition-transform"></div>
+                 <div className="h-8 w-8 rounded-full bg-red-600 border-2 border-neutral-700 group-hover:-translate-y-2 transition-transform delay-75"></div>
+                 <div className="h-8 w-8 rounded-full bg-black border-2 border-neutral-700 group-hover:-translate-y-1 transition-transform delay-150"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Growth Systems (Large Span) */}
+          <div className="col-span-1 md:col-span-2 group relative bg-neutral-900/50 border border-neutral-800 rounded-3xl p-8 hover:border-red-600/30 transition-all duration-300 overflow-hidden">
+             <div className="absolute top-0 left-0 w-64 h-64 bg-red-600/5 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+             
+             <div className="relative z-10 flex flex-col md:flex-row-reverse gap-8 h-full">
+              <div className="flex-1">
+                <div className="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 transition-colors duration-300">
+                  <TrendingUp size={24} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Growth Systems</h3>
+                <p className="text-neutral-400 text-sm leading-relaxed mb-6">
+                   Data-driven lead generation engines. We build the funnels that fill your sales pipeline automatically using precision targeting and analytics.
+                </p>
+                 <button className="flex items-center gap-2 text-sm font-bold text-white group-hover:text-red-500 transition-colors">
+                  Explore Strategies <ArrowRight size={16} />
+                </button>
+              </div>
+
+              {/* Abstract Visual: Bar Chart */}
+              <div className="flex-1 flex items-end justify-center md:justify-start gap-3 h-32 pb-4 border-b border-neutral-800">
+                 <div className="w-8 bg-neutral-800 rounded-t-lg h-[40%] group-hover:h-[50%] transition-all duration-500"></div>
+                 <div className="w-8 bg-neutral-800 rounded-t-lg h-[60%] group-hover:h-[70%] transition-all duration-500 delay-100"></div>
+                 <div className="w-8 bg-neutral-800 rounded-t-lg h-[30%] group-hover:h-[40%] transition-all duration-500 delay-200"></div>
+                 <div className="w-8 bg-gradient-to-t from-red-900 to-red-600 rounded-t-lg h-[70%] group-hover:h-[90%] transition-all duration-500 delay-300 shadow-[0_0_15px_rgba(220,38,38,0.5)]"></div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -339,172 +459,310 @@ const PortfolioSection = () => {
   );
 };
 
-const AboutSection = () => {
-  return (
-    <section id="about" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <span className="text-sm font-semibold text-red-600 mb-4 block">ABOUT US</span>
-            <h2 className="text-5xl font-bold text-neutral-900 mb-6">
-              Your dedicated<br />growth partners
-            </h2>
-            <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
-              Founded to bridge the gap between technology and revenue, 
-              we've delivered 70+ high-impact projects for global brands.
-            </p>
-            <div className="space-y-4">
-              {[
-                { icon: Shield, text: 'Enterprise-grade security' },
-                { icon: Zap, text: 'Lightning-fast delivery' },
-                { icon: Users, text: 'Dedicated support team' },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <item.icon size={20} className="text-red-600" />
-                  </div>
-                  <span className="text-neutral-700 font-medium">{item.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+// The hand-drawn circle SVG to match the image style
+const HandDrawnCircle = () => (
+  <svg 
+    className="absolute -top-3 -left-2 w-[110%] h-[130%] pointer-events-none text-red-600/30" 
+    viewBox="0 0 200 60" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+  >
+    <path 
+      d="M10.5 25.5C10.5 25.5 35.5 10.5 100.5 10.5C165.5 10.5 190.5 25.5 190.5 25.5C190.5 25.5 205.5 40.5 160.5 50.5C115.5 60.5 40.5 55.5 20.5 45.5C0.5 35.5 10.5 25.5 10.5 25.5Z" 
+      stroke="currentColor" 
+      strokeWidth="3" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
-          <div className="grid grid-cols-2 gap-8">
-            {[
-              { name: "Nizam", role: "CEO", image: "./Nizam.png" },
-              { name: "Ishwar", role: "CFO", image: "./Ishwar.png" },
-            ].map((member, i) => (
-              <div key={i} className="text-center">
-                <div className="relative aspect-square rounded-2xl overflow-hidden bg-neutral-100 mb-4">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900">{member.name}</h3>
-                <p className="text-sm text-neutral-600">{member.role}</p>
-              </div>
-            ))}
-          </div>
+// --- Sections ---
+
+const AboutSection = () => {
+  const features = [
+    { icon: Shield, text: 'Enterprise-grade security' },
+    { icon: Zap, text: 'Lightning-fast delivery' },
+    { icon: Users, text: 'Dedicated support team' },
+  ];
+
+  const team = [
+    { name: "Nizam", role: "CEO", image: "./Nizam.png" },
+    { name: "Ishwar", role: "CFO", image: "./Ishwar.png" },
+    // Added placeholders to visualize the grid effect from the image better
+    // { name: "Sarah", role: "Head of Product", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400" }, 
+  ];
+
+  return (
+    <section id="about" className="py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        {/* Header Section - Centered & Styled like Image */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-sm font-semibold text-red-600 bg-red-50 px-3 py-1 rounded-full mb-6 inline-block">
+                ABOUT US
+            </span>
+            
+            <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
+                We've got a 
+                <span className="relative inline-block mx-3">
+                    <span className="relative z-10">dedicated</span>
+                    <HandDrawnCircle />
+                </span> 
+                team <br className="hidden md:block"/>
+                to support your growth.
+            </h2>
+            
+            <p className="text-xl text-slate-500 mb-10 leading-relaxed">
+                Get help 24/7. Founded to bridge the gap between technology and revenue, we've delivered 70+ high-impact projects for global brands.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button className="px-6 py-3 rounded-lg border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition flex items-center gap-2">
+                    <Video size={20} /> Book a demo
+                </button>
+                <button className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
+                    Get in touch
+                </button>
+            </div>
         </div>
+
+        {/* Team Grid - Clean, Grayscale-ish look */}
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+             {/* Left Column: Features/Text */}
+            <div className="flex flex-col justify-center">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Why top brands choose us</h3>
+                <div className="space-y-6">
+                    {features.map((item, i) => (
+                    <div key={i} className="flex items-center gap-4 group">
+                        <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <item.icon size={22} className="text-red-600" />
+                        </div>
+                        <span className="text-slate-700 font-medium text-lg">{item.text}</span>
+                    </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Right Column: Team Members */}
+            <div className="grid grid-cols-2 gap-6">
+                {team.map((member, i) => (
+                <div key={i} className="group cursor-pointer">
+                    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 mb-4 transition-all duration-300 group-hover:shadow-xl">
+                        {/* Image with grayscale filter that lifts on hover (common in modern UI) */}
+                        <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                         {/* Overlay Name Tag */}
+                         <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-white/20">
+                            <h3 className="text-sm font-bold text-slate-900">{member.name}</h3>
+                            <p className="text-xs text-slate-500">{member.role}</p>
+                         </div>
+                    </div>
+                </div>
+                ))}
+            </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
 const ContactSection = () => {
-  const [status, setStatus] = useState("");
-  const [data, setData] = useState({ name: "", email: "", message: "" });
+  // 1. State for form data and loading status
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = () => {
-    if (!data.name || !data.email || !data.message) return;
-    setStatus("sending");
-    setTimeout(() => {
-      alert("Message sent successfully!");
-      setData({ name: "", email: "", message: "" });
-      setStatus("");
-    }, 1500);
+  // 2. Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // 3. Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Combine first and last name for the backend
+    const payload = {
+      name: `${formData.firstName} ${formData.lastName}`.trim(),
+      email: formData.email,
+      // We append the phone number to the message since the backend only expects 'message'
+      message: `Phone: ${formData.phone}\n\n${formData.message}`
+    };
+
+    try {
+      // 4. Send request to your backend running on port 5000
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        // Reset form
+        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      toast.error("Failed to connect to server.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contact" className="py-32 bg-neutral-900 text-white">
+    <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-20">
-          <div>
-            <span className="text-sm font-semibold text-red-400 mb-4 block">GET IN TOUCH</span>
-            <h2 className="text-5xl font-bold mb-6">
-              Let's build<br />something great
-            </h2>
-            <p className="text-xl text-neutral-400 mb-12">
-              Ready to transform your business? Book a free consultation 
-              and get a response within 24 hours.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail size={20} />
-                </div>
+        
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            
+            {/* Left Side: Contact Info */}
+            <div className="flex flex-col gap-12">
                 <div>
-                  <div className="font-medium mb-1">Email us</div>
-                  <a href="mailto:hello@developerstudios.in" className="text-neutral-400 hover:text-white transition-colors">
-                    hello@developerstudios.in
-                  </a>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Call us</h3>
+                    <p className="text-slate-500 mb-4">Call our team Mon-Fri from 8am to 5pm.</p>
+                    <a href="tel:+918889797895" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
+                        <Phone size={20} /> +91 88897 97895
+                    </a>
                 </div>
-              </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone size={20} />
-                </div>
                 <div>
-                  <div className="font-medium mb-1">Call us</div>
-                  <a href="tel:+918889797895" className="text-neutral-400 hover:text-white transition-colors">
-                    +91 88897 97895
-                  </a>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Chat with us</h3>
+                    <p className="text-slate-500 mb-4">Speak to our friendly team via live chat.</p>
+                    <div className="flex flex-col gap-3">
+                        <a href="#" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
+                            <MessageCircle size={20} /> Start a live chat
+                        </a>
+                        <a href="mailto:hello@developerstudios.in" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
+                            <Mail size={20} /> Shoot us an email
+                        </a>
+                        <a href="https://www.linkedin.com/company/developer-studios/" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
+                            <Linkedin size={20} /> Message us on LinkedIn
+                        </a>
+                    </div>
                 </div>
-              </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin size={20} />
-                </div>
                 <div>
-                  <div className="font-medium mb-1">Visit us</div>
-                  <p className="text-neutral-400">
-                    Twin Plaza, Bilaspur<br />Chhattisgarh, India
-                  </p>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Visit us</h3>
+                    <p className="text-slate-500 mb-4">Chat to us in person at our Location.</p>
+                    <a href="#" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
+                        <MapPin size={20} /> Twin Plaza, Bilaspur, Chhattisgarh, India
+                    </a>
                 </div>
-              </div>
             </div>
-          </div>
 
-          <div className="bg-white rounded-3xl p-10 text-neutral-900">
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  value={data.name}
-                  onChange={(e) => setData({...data, name: e.target.value})}
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600"
-                  placeholder="Your name"
-                />
-              </div>
+            {/* Right Side: Form */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 lg:bg-transparent lg:p-0 lg:border-0">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-2 gap-6">
+                        <div>
+                            <label className="block text-sm font-semibold text-slate-700 mb-1.5">First name</label>
+                            <input
+                                required
+                                type="text"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-slate-400"
+                                placeholder="First name"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-semibold text-slate-700 mb-1.5">Last name</label>
+                            <input
+                                required
+                                type="text"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-slate-400"
+                                placeholder="Last name"
+                            />
+                        </div>
+                    </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  value={data.email}
-                  onChange={(e) => setData({...data, email: e.target.value})}
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600"
-                  placeholder="you@company.com"
-                />
-              </div>
+                    <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+                        <input
+                            required
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-slate-400"
+                            placeholder="you@company.com"
+                        />
+                    </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  rows={5}
-                  value={data.message}
-                  onChange={(e) => setData({...data, message: e.target.value})}
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-600 resize-none"
-                  placeholder="Tell us about your project..."
-                />
-              </div>
+                    <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">Phone number</label>
+                        <div className="relative flex rounded-lg shadow-sm">
+                            <select className="px-4 py-2.5 border border-r-0 border-slate-300 bg-slate-50 text-slate-500 text-sm rounded-l-lg focus:ring-2 focus:ring-red-600 focus:outline-none">
+                                <option>IN</option>
+                                <option>US</option>
+                                <option>CA</option>
+                            </select>
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all placeholder-slate-400"
+                                placeholder="+91 00000 00000"
+                            />
+                        </div>
+                    </div>
 
-              <button
-                onClick={handleSubmit}
-                disabled={status === "sending"}
-                className="w-full px-8 py-4 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-              >
-                {status === "sending" ? "Sending..." : "Send Message"}
-                <ArrowRight size={18} />
-              </button>
+                    <div>
+                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">Message</label>
+                        <textarea
+                            required
+                            rows={4}
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all resize-none placeholder-slate-400"
+                            placeholder="Leave us a message..."
+                        />
+                    </div>
+
+                    <div className="pt-2">
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className={`w-full px-6 py-3 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                        >
+                            {isSubmitting ? (
+                                <>
+                                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                    Sending...
+                                </>
+                            ) : (
+                                'Send message'
+                            )}
+                        </button>
+                    </div>
+                </form>
             </div>
-          </div>
+
         </div>
       </div>
     </section>
@@ -513,70 +771,102 @@ const ContactSection = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-900 border-t border-neutral-800 text-white py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-4 gap-12 mb-12">
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
-                <img src="./logo.png" alt="DS" className="w-7 h-7" />
-              </div>
-              <span className="text-xl font-bold">
-                Developer<span className="text-red-600">Studios</span>
+    <footer className="bg-black text-white relative overflow-hidden border-t border-white/5 pt-20 pb-10">
+      
+      {/* 1. Large CTA Section */}
+      <div className="max-w-7xl mx-auto px-6 mb-20">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-10 pb-20 border-b border-white/10">
+          <div>
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6">
+              Let's build <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">
+                the future.
               </span>
-            </div>
-            <p className="text-neutral-400 mb-6 max-w-md">
-              Empowering businesses with custom software, AI automation, 
-              and strategic lead generation.
-            </p>
-            <div className="flex gap-4">
-              {[
-                { icon: Linkedin, href: "https://www.linkedin.com/company/developer-studios" },
-                { icon: Github, href: "https://github.com/Developerstudios" },
-                { icon: Instagram, href: "https://www.instagram.com/developerstudios.in" },
-                { icon: Facebook, href: "https://www.facebook.com/profile.php?id=100094521793367" },
-              ].map((social, i) => (
-                <a 
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-neutral-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <social.icon size={18} />
-                </a>
-              ))}
-            </div>
+            </h2>
+            <a href="#contact" className="group inline-flex items-center gap-4 text-xl font-medium hover:text-red-500 transition-colors">
+              <span className="border-b border-white/30 pb-1 group-hover:border-red-500 transition-colors">Start a project</span>
+              <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+            </a>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-neutral-400">
-              <li><a href="#services" className="hover:text-white transition-colors">Web Development</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">AI Automation</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Lead Generation</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Brand Strategy</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-neutral-400">
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#work" className="hover:text-white transition-colors">Portfolio</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-            </ul>
+          <div className="w-full max-w-sm">
+            <p className="text-gray-400 mb-4 text-sm">Subscribe to our newsletter for tech insights.</p>
+            <div className="flex gap-2">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-red-500 transition-colors"
+              />
+              <button className="bg-white text-black px-4 py-3 rounded-lg font-bold hover:bg-red-600 hover:text-white transition-colors">
+                <ArrowRight size={18} />
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-400">
-          <p>© 2025 DeveloperStudios. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+        {/* 2. Main Footer Content */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mt-16">
+          {/* Brand Column */}
+          <div className="col-span-2 md:col-span-1">
+             <div className="flex items-center gap-2 mb-6">
+                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                     <img src='./logo.png'/>
+                </div>
+                <span className="text-xl font-bold tracking-tight">Developer<span className="text-red-600">Studios</span></span>
+             </div>
+             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+               We are a digital product agency that builds scalable, high-performance software for forward-thinking companies.
+             </p>
+          </div>
+
+          {/* Links Column 1 */}
+          <div>
+            <h4 className="font-bold text-white mb-6">Sitemap</h4>
+            <ul className="space-y-4 text-sm text-gray-500">
+              <li><a href="#work" className="hover:text-red-500 transition-colors">Case Studies</a></li>
+              <li><a href="#services" className="hover:text-red-500 transition-colors">Services</a></li>
+              <li><a href="#process" className="hover:text-red-500 transition-colors">Process</a></li>
+              <li><a href="#about" className="hover:text-red-500 transition-colors">About</a></li>
+            </ul>
+          </div>
+
+          {/* Links Column 2 */}
+          <div>
+            <h4 className="font-bold text-white mb-6">Socials</h4>
+            <ul className="space-y-4 text-sm text-gray-500">
+               <li><a href="#" className="hover:text-red-500 transition-colors">LinkedIn</a></li>
+               <li><a href="#" className="hover:text-red-500 transition-colors">Instagram</a></li>
+               <li><a href="#" className="hover:text-red-500 transition-colors">GitHub</a></li>
+               <li><a href="#" className="hover:text-red-500 transition-colors">LinkedIn / X</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Details */}
+          <div>
+            <h4 className="font-bold text-white mb-6">Contact</h4>
+            <ul className="space-y-4 text-sm text-gray-500">
+              <li>hello@developerstudios.in</li>
+              <li>+91 88897 97895</li>
+              <li>Bilaspur, Chhattisgarh, India</li>
+            </ul>
           </div>
         </div>
+      </div>
+
+      {/* 3. Bottom Bar */}
+      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+         <p className="text-xs text-gray-600">© 2025 Developer Studios. All rights reserved.</p>
+         <div className="flex gap-8">
+            <a href="#" className="text-xs text-gray-600 hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="text-xs text-gray-600 hover:text-white transition-colors">Terms & Conditions</a>
+         </div>
+      </div>
+
+      {/* Decorative 'Big Text' Background (Optional Style) */}
+      <div className="absolute -bottom-10 left-0 w-full overflow-hidden pointer-events-none opacity-[0.03]">
+         <h1 className="text-[12rem] md:text-[20rem] font-bold text-white whitespace-nowrap text-center tracking-tighter select-none">
+            STUDIOS
+         </h1>
       </div>
     </footer>
   );

@@ -1,3 +1,4 @@
+import { ReactLenis } from "lenis/react"; // 1. Import Lenis
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
@@ -22,10 +23,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         
-        {/* 🔥 Global Toaster for notifications */}
-        <Toaster position="top-right" reverseOrder={false} />
+        {/* 2. Wrap content in ReactLenis with the 'root' prop */}
+        <ReactLenis root>
+          {/* 🔥 Global Toaster for notifications */}
+          <Toaster position="top-right" reverseOrder={false} />
 
-        {children}
+          {children}
+        </ReactLenis>
+        
       </body>
     </html>
   );
