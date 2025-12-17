@@ -36,6 +36,15 @@ import {
   Layers
 } from 'lucide-react';
 import { Toaster, toast } from 'react-hot-toast';
+
+// --- Configuration ---
+const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/developerstudios.in?igsh=NjhhcXp6aG5ld2ow",
+  linkedin: "https://www.linkedin.com/company/developer-studios?trk=blended-typeahead",
+  github: "https://github.com/Developerstudios",
+  facebook: "https://www.facebook.com/profile.php?id=100094521793367"
+};
+
 const portfolioItems = [
   { title: 'Rogers Telecom', href: 'https://www.rogers.com/', image: './rogers.png', category: 'Telecommunications' },
   { title: 'Telus Digital', href: 'https://www.telus.com/en/', image: './telus.png', category: 'Telecommunications' },
@@ -519,12 +528,23 @@ const AboutSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="px-6 py-3 rounded-lg border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition flex items-center gap-2">
+                {/* Updated: Links to Calendly */}
+                <a 
+                    href="https://calendly.com/raoishwar9/30min"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 rounded-lg border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition flex items-center gap-2"
+                >
                     <Video size={20} /> Book a demo
-                </button>
-                <button className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
+                </a>
+                
+                {/* Updated: Scrolls to Contact Section */}
+                <a 
+                    href="#contact"
+                    className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20"
+                >
                     Get in touch
-                </button>
+                </a>
             </div>
         </div>
 
@@ -571,7 +591,6 @@ const AboutSection = () => {
     </section>
   );
 };
-
 const ContactSection = () => {
   // 1. State for form data and loading status
   const [formData, setFormData] = useState({
@@ -603,8 +622,7 @@ const ContactSection = () => {
 
     try {
       // 4. Send request to your backend running on port 5000
-const response = await fetch(
-  `${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://developer-studios-backend.vercel.app'}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -613,6 +631,7 @@ const response = await fetch(
       });
 
       const data = await response.json();
+      console.log("Contact API Response:", data);
 
       if (data.success) {
         toast.success("Message sent successfully!");
@@ -649,13 +668,14 @@ const response = await fetch(
                     <h3 className="text-2xl font-bold text-slate-900 mb-2">Chat with us</h3>
                     <p className="text-slate-500 mb-4">Speak to our friendly team via live chat.</p>
                     <div className="flex flex-col gap-3">
-                        <a href="#" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
-                            <MessageCircle size={20} /> Start a live chat
+                        {/* UPDATE: Instagram Live Chat Link */}
+                        <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
+                            <MessageCircle size={20} /> Start a live chat (Instagram)
                         </a>
                         <a href="mailto:hello@developerstudios.in" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
                             <Mail size={20} /> Shoot us an email
                         </a>
-                        <a href="https://www.linkedin.com/company/developer-studios/" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
+                        <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-900 font-semibold hover:text-red-600 transition">
                             <Linkedin size={20} /> Message us on LinkedIn
                         </a>
                     </div>
@@ -790,7 +810,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="w-full max-w-sm">
+          {/* <div className="w-full max-w-sm">
             <p className="text-gray-400 mb-4 text-sm">Subscribe to our newsletter for tech insights.</p>
             <div className="flex gap-2">
               <input 
@@ -802,7 +822,7 @@ const Footer = () => {
                 <ArrowRight size={18} />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* 2. Main Footer Content */}
@@ -835,10 +855,10 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white mb-6">Socials</h4>
             <ul className="space-y-4 text-sm text-gray-500">
-               <li><a href="#" className="hover:text-red-500 transition-colors">LinkedIn</a></li>
-               <li><a href="#" className="hover:text-red-500 transition-colors">Instagram</a></li>
-               <li><a href="#" className="hover:text-red-500 transition-colors">GitHub</a></li>
-               <li><a href="#" className="hover:text-red-500 transition-colors">LinkedIn / X</a></li>
+               <li><a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">LinkedIn</a></li>
+               <li><a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Instagram</a></li>
+               <li><a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">GitHub</a></li>
+               <li><a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Facebook</a></li>
             </ul>
           </div>
 
@@ -858,8 +878,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
          <p className="text-xs text-gray-600">© 2025 Developer Studios. All rights reserved.</p>
          <div className="flex gap-8">
-            <a href="#" className="text-xs text-gray-600 hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-gray-600 hover:text-white transition-colors">Terms & Conditions</a>
+            <a href="/privacy-policy" className="text-xs text-gray-600 hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/terms-conditions" className="text-xs text-gray-600 hover:text-white transition-colors">Terms & Conditions</a>
          </div>
       </div>
 

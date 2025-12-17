@@ -1,7 +1,6 @@
-import { ReactLenis } from "lenis/react"; // 1. Import Lenis
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
+import Providers from "./providers"; // Import the client wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,15 +21,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        
-        {/* 2. Wrap content in ReactLenis with the 'root' prop */}
-        <ReactLenis root>
-          {/* 🔥 Global Toaster for notifications */}
-          <Toaster position="top-right" reverseOrder={false} />
-
+        {/* Wrap children with the Client Component */}
+        <Providers>
           {children}
-        </ReactLenis>
-        
+        </Providers>
       </body>
     </html>
   );
