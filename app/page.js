@@ -603,7 +603,8 @@ const ContactSection = () => {
 
     try {
       // 4. Send request to your backend running on port 5000
-      const response = await fetch("http://localhost:5000/api/contact", {
+const response = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
